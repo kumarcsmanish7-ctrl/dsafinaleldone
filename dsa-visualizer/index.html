@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures Visualizer & Analyzer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Data Structures Visualizer & Analyzer</h1>
+        <button id="theme-toggle">Toggle Theme</button>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#" data-structure="stack">Stack</a></li>
+                <li><a href="#" data-structure="queue">Queue</a></li>
+                <li><a href="#" data-structure="circular-queue">Circular Queue</a></li>
+                <li><a href="#" data-structure="singly-linked-list">Singly Linked List</a></li>
+                <li><a href="#" data-structure="doubly-linked-list">Doubly Linked List</a></li>
+                <li><a href="#" data-structure="bst">Binary Search Tree</a></li>
+                <li><a href="#" data-structure="heap">Heap (Priority Queue)</a></li>
+                <li><a href="#" data-structure="scheduler">Task Scheduler</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div id="visualization-area">
+                <!-- Visualization will be rendered here -->
+            </div>
+            <div id="control-panel">
+                <div id="operations">
+                    <!-- Dynamic buttons and inputs based on selected structure -->
+                </div>
+                <div id="analysis-panel">
+                    <h3>Analysis</h3>
+                    <p id="time-complexity">Time Complexity: </p>
+                    <p id="space-complexity">Space Complexity: </p>
+                </div>
+                <div id="controls">
+                    <label for="speed-slider">Animation Speed:</label>
+                    <input type="range" id="speed-slider" min="100" max="2000" value="500" step="100">
+                    <button id="reset-btn">Reset</button>
+                    <button id="clear-btn">Clear</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/animations.js"></script>
+    <script src="js/stack.js"></script>
+    <script src="js/queue.js"></script>
+    <script src="js/linkedlist.js"></script>
+    <script src="js/tree.js"></script>
+    <script src="js/heap.js"></script>
+    <script src="js/scheduler.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
