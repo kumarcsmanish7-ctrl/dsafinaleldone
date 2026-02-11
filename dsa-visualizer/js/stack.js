@@ -59,18 +59,13 @@ class StackVisualizer {
             <button id="peek-btn" class="tooltip">Peek
                 <span class="tooltiptext">View top element without removing - O(1)</span>
             </button>
-            <h4>Infix to Postfix/Prefix</h4>
-            <input type="text" id="infix-input" placeholder="Enter infix expression (e.g., A+B*C)">
-            <button id="to-postfix-btn">Convert to Postfix</button>
-            <button id="to-prefix-btn">Convert to Prefix</button>
-            <p id="conversion-result"></p>
+            <!-- Infix converter moved to dedicated Infix feature -->
         `;
 
         document.getElementById('push-btn').addEventListener('click', () => this.push());
         document.getElementById('pop-btn').addEventListener('click', () => this.pop());
         document.getElementById('peek-btn').addEventListener('click', () => this.peek());
-        document.getElementById('to-postfix-btn').addEventListener('click', () => this.convertToPostfix());
-        document.getElementById('to-prefix-btn').addEventListener('click', () => this.convertToPrefix());
+        // (conversion UI removed from Stack) 
     }
 
     static async push() {
@@ -123,70 +118,5 @@ class StackVisualizer {
         this.timeComplexityP.textContent = 'Time Complexity: O(1) for Push, Pop, Peek';
         this.spaceComplexityP.textContent = 'Space Complexity: O(n)';
     }
-
-    static convertToPostfix() {
-        const infix = document.getElementById('infix-input').value.trim();
-        if (infix === '') return;
-
-        const postfix = this.infixToPostfix(infix);
-        document.getElementById('conversion-result').textContent = `Postfix: ${postfix}`;
-        this.animateConversion(infix, postfix, 'postfix');
-    }
-
-    static convertToPrefix() {
-        const infix = document.getElementById('infix-input').value.trim();
-        if (infix === '') return;
-
-        const prefix = this.infixToPrefix(infix);
-        document.getElementById('conversion-result').textContent = `Prefix: ${prefix}`;
-        this.animateConversion(infix, prefix, 'prefix');
-    }
-
-    static infixToPostfix(infix) {
-        const precedence = { '+': 1, '-': 1, '*': 2, '/': 2, '^': 3 };
-        const stack = [];
-        let postfix = '';
-
-        for (let char of infix) {
-            if (char.match(/[a-zA-Z0-9]/)) {
-                postfix += char;
-            } else if (char === '(') {
-                stack.push(char);
-            } else if (char === ')') {
-                while (stack.length && stack[stack.length - 1] !== '(') {
-                    postfix += stack.pop();
-                }
-                stack.pop();
-            } else {
-                while (stack.length && precedence[char] <= precedence[stack[stack.length - 1]]) {
-                    postfix += stack.pop();
-                }
-                stack.push(char);
-            }
-        }
-
-        while (stack.length) {
-            postfix += stack.pop();
-        }
-
-        return postfix;
-    }
-
-    static infixToPrefix(infix) {
-        // Reverse the infix expression
-        let reversed = infix.split('').reverse().join('');
-        // Replace ( with ) and vice versa
-        reversed = reversed.replace(/\(/g, '#').replace(/\)/g, '(').replace(/#/g, ')');
-        // Get postfix of reversed expression
-        const postfix = this.infixToPostfix(reversed);
-        // Reverse the postfix to get prefix
-        return postfix.split('').reverse().join('');
-    }
-
-    static async animateConversion(infix, result, type) {
-        // Simple animation showing the conversion process
-        // For brevity, just highlight the result
-        const resultP = document.getElementById('conversion-result');
-        await Animations.highlightElement(resultP, this.animationSpeed);
-    }
+    
 }

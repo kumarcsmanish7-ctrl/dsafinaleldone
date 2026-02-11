@@ -398,6 +398,38 @@ main {
     color: var(--button-text);
 }
 
+/* Infix visualizer specific styles */
+.infix-panel { padding: 10px 12px; border-radius: 6px; background: var(--bg-color); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.stack-visual { display:flex; flex-direction: column; gap:6px; max-height:240px; overflow:auto; }
+.stack-box { padding:8px 10px; background:#6b21a8; color:#fff; border-radius:4px; text-align:center; min-width:36px; }
+.output-box { padding:8px 10px; background:#f97316; color:#fff; border-radius:4px; min-height:36px; }
+.operand { color:#2563eb; font-weight:600; }
+.operator { color:#dc2626; font-weight:700; }
+.paren { color:#16a34a; font-weight:700; }
+.highlight-compare { box-shadow: 0 0 0 3px rgba(220,38,38,0.08); }
+.step-table th { text-align:left; padding:6px; font-weight:700; }
+.step-table td { padding:6px; }
+.explanation { color:var(--text-color); }
+
+/* Dark theme - toggled by .dark-theme on documentElement */
+.dark-theme .infix-panel { background:#0f172a; color:#e6eef8; box-shadow: none; }
+.dark-theme .stack-box { background:#7c3aed; color:#fff; }
+.dark-theme .output-box { background:#f97316; color:#fff; }
+.dark-theme .step-table td, .dark-theme .step-table th { border-color: rgba(255,255,255,0.06); color:#e6eef8; }
+.dark-theme .explanation { color:#cbd5e1; }
+
+@media (max-width: 720px) {
+    .stack-visual { max-height: 200px; }
+    .infix-panel { padding:8px; }
+}
+
+/* Top input bar inside visualization area so controls are visible */
+.infix-topbar {
+    background: transparent;
+}
+
+
+
 .prev-section {
     border-right: 2px solid var(--border-color);
 }

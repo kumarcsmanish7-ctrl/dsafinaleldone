@@ -91,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'scheduler':
                 TaskScheduler.init(visualizationArea, operationsDiv, timeComplexityP, spaceComplexityP, animationSpeed);
                 break;
+            case 'infix':
+                InfixVisualizer.init(visualizationArea, operationsDiv, timeComplexityP, spaceComplexityP, animationSpeed);
+                break;
             case 'ai-chatbot':
                 initializeChatBot();
                 break;
