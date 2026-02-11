@@ -1,0 +1,9 @@
+{
+  "name": "dsa-visualizer-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "serve dsa-visualizer",
+    "build": "echo \"Static site - no build step\""
+  }
+}

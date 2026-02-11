@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "dsa-visualizer/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "dsa-visualizer/$1" }
+  ]
+}
